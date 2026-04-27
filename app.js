@@ -224,6 +224,13 @@ async function handleSubmit() {
             if (mathFb.error) throw new Error('Math upload failed: ' + mathFb.error.message);
         }
 
+        // Log submission to database
+        var { error: dbError } = await supabaseClient
+            .from('submissions')
+            .insert({ roll_number: roll });
+
+        if (dbError) console.warn('DB insert warning:', dbError.message);
+
         // Success!
         showSuccess(roll);
 
