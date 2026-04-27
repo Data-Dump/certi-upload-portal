@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="bg-grid"></div>
     <div class="glow glow-1"></div>
@@ -19,12 +21,13 @@
         <div class="card" id="upload-card">
             <div class="card-header">
                 <div class="icon-badge" id="header-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="12" y1="18" x2="12" y2="12"/>
-                        <line x1="9" y1="15" x2="12" y2="12"/>
-                        <line x1="15" y1="15" x2="12" y2="12"/>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="12" y1="18" x2="12" y2="12" />
+                        <line x1="9" y1="15" x2="12" y2="12" />
+                        <line x1="15" y1="15" x2="12" y2="12" />
                     </svg>
                 </div>
                 <h1>Certificate Upload</h1>
@@ -35,34 +38,53 @@
                 <!-- Roll Number -->
                 <div class="form-group" id="roll-group">
                     <label for="roll-number">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                        </svg>
                         Roll Number
                     </label>
-                    <input type="text" id="roll-number" name="rollNumber" placeholder="e.g. 2024BCS001" required>
+                    <input type="text" id="roll-number" name="rollNumber" placeholder="e.g. 25BCAN0084" required>
                     <span class="field-hint">Alphanumeric roll number identifying the student</span>
                 </div>
 
                 <!-- Student Name -->
                 <div class="form-group" id="name-group">
                     <label for="student-name">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
                         Student Name
                     </label>
-                    <input type="text" id="student-name" name="studentName" placeholder="e.g. Kaushal Sharma" required>
+                    <input type="text" id="student-name" name="studentName" placeholder="e.g. Palak Punwani" required>
                     <span class="field-hint">Full name of the student</span>
                 </div>
 
                 <!-- DBMS Certificate -->
                 <div class="form-group" id="dbms-group">
                     <label for="dbms-file">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3" />
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                        </svg>
                         DBMS Certificate
                     </label>
-                    <div class="file-dropzone" id="dbms-dropzone" tabindex="0" role="button" aria-label="Upload DBMS certificate image">
+                    <div class="file-dropzone" id="dbms-dropzone" tabindex="0" role="button"
+                        aria-label="Upload DBMS certificate image">
                         <input type="file" id="dbms-file" name="dbmsFile" accept="image/*" class="sr-only">
                         <div class="dropzone-content">
                             <div class="dropzone-icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
                             </div>
                             <span class="dropzone-label">Click or drag to upload</span>
                             <span class="dropzone-hint">Images only — JPG, PNG, WebP</span>
@@ -71,7 +93,8 @@
                             <img id="dbms-thumb" alt="DBMS certificate preview">
                             <div class="file-info">
                                 <span class="file-name" id="dbms-name"></span>
-                                <button type="button" class="btn-remove" id="dbms-remove" aria-label="Remove DBMS file">&times;</button>
+                                <button type="button" class="btn-remove" id="dbms-remove"
+                                    aria-label="Remove DBMS file">&times;</button>
                             </div>
                         </div>
                     </div>
@@ -80,14 +103,25 @@
                 <!-- Math Certificate -->
                 <div class="form-group" id="math-group">
                     <label for="math-file">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="20" x2="12" y2="10" />
+                            <line x1="18" y1="20" x2="18" y2="4" />
+                            <line x1="6" y1="20" x2="6" y2="16" />
+                        </svg>
                         Math Certificate
                     </label>
-                    <div class="file-dropzone" id="math-dropzone" tabindex="0" role="button" aria-label="Upload Math certificate image">
+                    <div class="file-dropzone" id="math-dropzone" tabindex="0" role="button"
+                        aria-label="Upload Math certificate image">
                         <input type="file" id="math-file" name="mathFile" accept="image/*" class="sr-only">
                         <div class="dropzone-content">
                             <div class="dropzone-icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
                             </div>
                             <span class="dropzone-label">Click or drag to upload</span>
                             <span class="dropzone-hint">Images only — JPG, PNG, WebP</span>
@@ -96,7 +130,8 @@
                             <img id="math-thumb" alt="Math certificate preview">
                             <div class="file-info">
                                 <span class="file-name" id="math-name"></span>
-                                <button type="button" class="btn-remove" id="math-remove" aria-label="Remove Math file">&times;</button>
+                                <button type="button" class="btn-remove" id="math-remove"
+                                    aria-label="Remove Math file">&times;</button>
                             </div>
                         </div>
                     </div>
@@ -106,7 +141,10 @@
                 <button type="submit" class="btn-submit" id="submit-btn">
                     <span class="btn-text">Upload Certificates</span>
                     <span class="btn-loader" style="display:none">
-                        <svg class="spinner" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                        <svg class="spinner" width="20" height="20" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none"
+                                stroke-dasharray="31.4 31.4" stroke-linecap="round" />
+                        </svg>
                         Uploading…
                     </span>
                 </button>
@@ -120,8 +158,8 @@
         <div class="card success-card" id="success-card" style="display:none">
             <div class="success-anim">
                 <svg class="checkmark" viewBox="0 0 52 52">
-                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none" />
+                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                 </svg>
             </div>
             <h2>Upload Successful!</h2>
@@ -133,4 +171,5 @@
     <script src="https://unpkg.com/@supabase/supabase-js@2.105.0/dist/umd/supabase.js"></script>
     <script src="app.js" defer></script>
 </body>
+
 </html>
