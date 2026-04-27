@@ -149,7 +149,9 @@ function setupForm() {
 
 async function handleSubmit() {
     var rollInput = $('roll-number');
+    var nameInput = $('student-name');
     var roll = rollInput.value.trim();
+    var studentName = nameInput.value.trim();
 
     // Validate
     var valid = true;
@@ -161,6 +163,14 @@ async function handleSubmit() {
         valid = false;
     } else {
         $('roll-group').classList.remove('has-error');
+    }
+
+    if (!studentName) {
+        $('name-group').classList.add('has-error');
+        if (valid) { showToast('Student name is required.', 'error'); nameInput.focus(); }
+        valid = false;
+    } else {
+        $('name-group').classList.remove('has-error');
     }
 
     if (!state.dbmsFile) {
@@ -227,7 +237,7 @@ async function handleSubmit() {
         // Log submission to database
         var { error: dbError } = await supabaseClient
             .from('submissions')
-            .insert({ roll_number: roll });
+            .insert({ roll_number: roll, student_name: studentName });
 
         if (dbError) console.warn('DB insert warning:', dbError.message);
 
@@ -263,9 +273,10 @@ function resetToForm() {
     $('upload-card').style.display = '';
 
     $('roll-number').value = '';
+    $('student-name').value = '';
     clearFile('dbms');
     clearFile('math');
-    ['roll-group', 'dbms-group', 'math-group'].forEach(function (id) {
+    ['roll-group', 'name-group', 'dbms-group', 'math-group'].forEach(function (id) {
         $(id).classList.remove('has-error');
     });
 }
