@@ -16,7 +16,7 @@ function $(id) { return document.getElementById(id); }
 /* ──── Initialize everything on DOM ready ──── */
 document.addEventListener('DOMContentLoaded', function () {
     // Wire up UI first (works even if Supabase CDN hasn't loaded yet)
-    setupDropzone('dbms');
+    // setupDropzone('dbms');
     setupDropzone('math');
     setupForm();
 
@@ -150,8 +150,8 @@ function setupForm() {
 async function handleSubmit() {
     var rollInput = $('roll-number');
     var nameInput = $('student-name');
-    var roll = rollInput.value.trim();
-    var studentName = nameInput.value.trim();
+    var roll = rollInput.value.trim().toUpperCase();
+    var studentName = nameInput.value.trim().toUpperCase();
 
     // Validate
     var valid = true;
@@ -173,11 +173,11 @@ async function handleSubmit() {
         $('name-group').classList.remove('has-error');
     }
 
-    if (!state.dbmsFile) {
-        $('dbms-group').classList.add('has-error');
-        if (valid) showToast('Please upload the DBMS certificate.', 'error');
-        valid = false;
-    }
+    // if (!state.dbmsFile) {
+    //     $('dbms-group').classList.add('has-error');
+    //     if (valid) showToast('Please upload the DBMS certificate.', 'error');
+    //     valid = false;
+    // }
 
     if (!state.mathFile) {
         $('math-group').classList.add('has-error');
@@ -204,22 +204,22 @@ async function handleSubmit() {
 
     try {
         var ts = Date.now();
-        var dbmsPath = 'DBMS/' + roll + '_DBMS.jpg';
+        // var dbmsPath = 'DBMS/' + roll + '_DBMS.jpg';
         var mathPath = 'Math/' + roll + '_MATH.jpg';
 
-        // Upload DBMS certificate
-        var dbmsResult = await supabaseClient.storage
-            .from(BUCKET)
-            .upload(dbmsPath, state.dbmsFile, { upsert: true, contentType: state.dbmsFile.type });
+        // // Upload DBMS certificate
+        // var dbmsResult = await supabaseClient.storage
+        //     .from(BUCKET)
+        //     .upload(dbmsPath, state.dbmsFile, { upsert: true, contentType: state.dbmsFile.type });
 
-        if (dbmsResult.error) {
-            // Fallback: append timestamp if upsert not allowed
-            var dbmsFallback = 'DBMS/' + roll + '_DBMS_' + ts + '.jpg';
-            var dbmsFb = await supabaseClient.storage
-                .from(BUCKET)
-                .upload(dbmsFallback, state.dbmsFile, { contentType: state.dbmsFile.type });
-            if (dbmsFb.error) throw new Error('DBMS upload failed: ' + dbmsFb.error.message);
-        }
+        // if (dbmsResult.error) {
+        //     // Fallback: append timestamp if upsert not allowed
+        //     var dbmsFallback = 'DBMS/' + roll + '_DBMS_' + ts + '.jpg';
+        //     var dbmsFb = await supabaseClient.storage
+        //         .from(BUCKET)
+        //         .upload(dbmsFallback, state.dbmsFile, { contentType: state.dbmsFile.type });
+        //     if (dbmsFb.error) throw new Error('DBMS upload failed: ' + dbmsFb.error.message);
+        // }
 
         // Upload Math certificate
         var mathResult = await supabaseClient.storage
@@ -274,9 +274,9 @@ function resetToForm() {
 
     $('roll-number').value = '';
     $('student-name').value = '';
-    clearFile('dbms');
+    // clearFile('dbms');
     clearFile('math');
-    ['roll-group', 'name-group', 'dbms-group', 'math-group'].forEach(function (id) {
+    ['roll-group', 'name-group', 'math-group'].forEach(function (id) {
         $(id).classList.remove('has-error');
     });
 }
