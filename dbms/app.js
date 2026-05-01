@@ -155,10 +155,24 @@ async function handleSubmit() {
     // Validate
     var valid = true;
 
+    const ALLOWED_ROLL_NUMBERS = [
+        '25BCAN0668', '25BCAN0107', '25BCAN0108', '25BCAN0109', '25BCAN0110',
+        '25BCAN0119', '25BCAN0127', '25BCAN0128', '25BCAN0129', '25BCAN0130',
+        '25BCAN0131', '25BCAN0132', '25BCAN0133', '25BCAN0144', '25BCAN0147',
+        '25BCAN0153', '25BCAN0154', '25BCAN0164', '25BCAN0168', '25BCAN0169',
+        '25BCAN0172', '25BCAN0178', '25BCAN0179', '25BCAN0180', '25BCAN0183',
+        '25BCAN0185', '25BCAN0194', '25BCAN0202', '25BCAN0672', '25BCAN0683'
+    ];
+
     if (!roll) {
         $('roll-group').classList.add('has-error');
         showToast('Roll number is required.', 'error');
         rollInput.focus();
+        valid = false;
+    } else if (!ALLOWED_ROLL_NUMBERS.includes(roll)) {
+        $('roll-group').classList.add('has-error');
+        showToast('Upload not permitted: invalid roll number.', 'error');
+        if (valid) rollInput.focus();
         valid = false;
     } else {
         $('roll-group').classList.remove('has-error');
