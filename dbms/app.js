@@ -2,9 +2,9 @@
    Certificate Upload App — Supabase Storage
    ============================================================ */
 
-const SUPABASE_URL  = 'https://vzfhlednbnqmrqjewtxl.supabase.co';
+const SUPABASE_URL = 'https://vzfhlednbnqmrqjewtxl.supabase.co';
 const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6ZmhsZWRuYm5xbXJxamV3dHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzczMDczOTEsImV4cCI6MjA5Mjg4MzM5MX0.Vk3FNUjMfI_vZvPkP-S9D68W09N102gmjJuqCgcrbJM';
-const BUCKET        = 'certificates';
+const BUCKET = 'certificates';
 
 /* ──── State ──── */
 const state = { dbmsFile: null, mathFile: null };
@@ -40,7 +40,7 @@ function initSupabase() {
 /* ──── Dropzone ──── */
 function setupDropzone(key) {
     var dropzone = $(key + '-dropzone');
-    var input    = $(key + '-file');
+    var input = $(key + '-file');
 
     if (!dropzone || !input) {
         console.error('Dropzone or input not found for:', key);
@@ -65,7 +65,7 @@ function setupDropzone(key) {
 
     // Drag & drop
     dropzone.addEventListener('dragenter', function (e) { e.preventDefault(); dropzone.classList.add('drag-over'); });
-    dropzone.addEventListener('dragover',  function (e) { e.preventDefault(); dropzone.classList.add('drag-over'); });
+    dropzone.addEventListener('dragover', function (e) { e.preventDefault(); dropzone.classList.add('drag-over'); });
     dropzone.addEventListener('dragleave', function (e) { e.preventDefault(); dropzone.classList.remove('drag-over'); });
     dropzone.addEventListener('drop', function (e) {
         e.preventDefault();
@@ -101,10 +101,10 @@ function handleFile(key, file) {
     state[key + 'File'] = file;
 
     var dropzone = $(key + '-dropzone');
-    var content  = dropzone.querySelector('.dropzone-content');
-    var preview  = $(key + '-preview');
-    var thumb    = $(key + '-thumb');
-    var nameEl   = $(key + '-name');
+    var content = dropzone.querySelector('.dropzone-content');
+    var preview = $(key + '-preview');
+    var thumb = $(key + '-thumb');
+    var nameEl = $(key + '-name');
 
     // Show thumbnail preview
     thumb.src = URL.createObjectURL(file);
@@ -122,10 +122,10 @@ function clearFile(key) {
     state[key + 'File'] = null;
 
     var dropzone = $(key + '-dropzone');
-    var content  = dropzone.querySelector('.dropzone-content');
-    var preview  = $(key + '-preview');
-    var thumb    = $(key + '-thumb');
-    var input    = $(key + '-file');
+    var content = dropzone.querySelector('.dropzone-content');
+    var preview = $(key + '-preview');
+    var thumb = $(key + '-thumb');
+    var input = $(key + '-file');
 
     URL.revokeObjectURL(thumb.src);
     thumb.src = '';
@@ -171,7 +171,7 @@ async function handleSubmit() {
         valid = false;
     } else if (!ALLOWED_ROLL_NUMBERS.includes(roll)) {
         $('roll-group').classList.add('has-error');
-        showToast('Upload not permitted: invalid roll number.', 'error');
+        showToast('Upload not permitted: You Are Not Allowed To Upload To This Link..', 'error');
         if (valid) rollInput.focus();
         valid = false;
     } else {
@@ -201,7 +201,7 @@ async function handleSubmit() {
     }
 
     // Show loading state
-    var btn     = $('submit-btn');
+    var btn = $('submit-btn');
     var btnText = btn.querySelector('.btn-text');
     var btnLoad = btn.querySelector('.btn-loader');
 
