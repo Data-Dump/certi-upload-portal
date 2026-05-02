@@ -23,6 +23,36 @@
     border: 0;
 }
 
+#submission-closed {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 20, 0.95);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.closed-message {
+    text-align: center;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
+}
+
+.closed-message h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.closed-message p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
 :root {
     --bg: #0a0a12;
     --surface: rgba(255, 255, 255, 0.04);
